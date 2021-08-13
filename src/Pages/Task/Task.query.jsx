@@ -16,6 +16,6 @@ export default graphql(
     `,
     {
         options: () => ({ variables: { page: 0, campaign_id: "001" } }),
-        props: ({ data = {} }) => ({ allRewards: data.allRewards || [] }),
+        props: ({ data = {} }) => ({ campaignXRewards: data.allRewards || [] }),
     },
 );

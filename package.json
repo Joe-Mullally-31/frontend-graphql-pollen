@@ -25,6 +25,7 @@
     "graphql": "^0.12.3",
     "graphql-tag": "^2.10.1",
     "mini-css-extract-plugin": "^0.8.0",
+    "prettier": "2.3.2",
     "prop-types": "^15.7.2",
     "react-hot-loader": "^4.12.10",
     "sass-loader": "^7.2.0",
@@ -36,6 +37,8 @@
     "webpack-hot-middleware": "^2.25.0"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "apollo-cache-inmemory": "^1.6.2",
     "apollo-client": "^2.6.3",
     "apollo-link-http": "^1.5.15",

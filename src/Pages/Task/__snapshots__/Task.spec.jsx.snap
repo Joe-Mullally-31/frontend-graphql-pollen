@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Task /> renders with props 1`] = `
-<h1>
-  Empty Task
-</h1>
+<Fragment>
+  <h1>
+    Campaign X Rewards
+  </h1>
+  <RewardsList
+    rewards={Object {}}
+  />
+</Fragment>
 `;

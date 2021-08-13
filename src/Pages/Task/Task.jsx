@@ -1,7 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import RewardsList from "./components/RewardsList/RewardsList.jsx";
+import "./Task.scss";
+import Filters from "./components/QuantitySlider/Filters.jsx";
 
-const Task = () => <h1>Empty Task</h1>;
+const Task = ({ campaignXRewards = {} }) => {
+  return (
+    <>
+      <h1>Campaign X Rewards</h1>
+      <Filters />
+      <RewardsList rewards={campaignXRewards} />
+    </>
+  );
+};
 
 Task.propTypes = {};
 
