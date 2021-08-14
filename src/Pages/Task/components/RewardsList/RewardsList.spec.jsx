@@ -28,4 +28,8 @@ describe("<RewardsList />", () => {
   it("renders with props", () => {
     expect(component).toMatchSnapshot();
   });
+
+  it("should filter based on quantity range", () => {});
+  it("should filter based on points range", () => {});
+  it("should filter based on capPerAmbassador range", () => {});
 });
