@@ -6,6 +6,12 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Slider } from "@material-ui/core";
+import { connect } from "react-redux";
+import {
+  updateCapRange,
+  updatePointsRange,
+  updateQuantityRange,
+} from "../../actions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,22 +27,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Filters = () => {
+export const Filters = ({ dispatch, quantityRange, pointsRange, capRange }) => {
   const classes = useStyles();
-  const [quantity, setQuantity] = React.useState([0, 100]);
-  const [points, setPoints] = React.useState([0, 10000]);
-  const [cap, setCap] = React.useState([0, 5]);
 
   const handleQuantityChange = (event, newQuantity) => {
-    setQuantity(newQuantity);
+    dispatch(updateQuantityRange(newQuantity[0], newQuantity[1]));
   };
 
   const handlePointsChange = (event, newPoints) => {
-    setPoints(newPoints);
+    dispatch(updatePointsRange(newPoints[0], newPoints[1]));
   };
 
   const handleCapChange = (event, newCaps) => {
-    setCap(newCaps);
+    dispatch(updateCapRange(newCaps[0], newCaps[1]));
   };
 
   const quantityMarks = [
@@ -70,7 +73,7 @@ const Filters = () => {
             <Slider
               min={0}
               max={100}
-              value={quantity}
+              value={quantityRange}
               onChange={handleQuantityChange}
               valueLabelDisplay="auto"
               aria-labelledby="quantity-slider"
@@ -83,7 +86,7 @@ const Filters = () => {
             <Slider
               min={0}
               max={10000}
-              value={points}
+              value={pointsRange}
               onChange={handlePointsChange}
               valueLabelDisplay="auto"
               aria-labelledby="points-slider"
@@ -97,7 +100,7 @@ const Filters = () => {
             <Slider
               min={0}
               max={5}
-              value={cap}
+              value={capRange}
               onChange={handleCapChange}
               valueLabelDisplay="auto"
               aria-labelledby="cap-slider"
@@ -112,4 +115,11 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+const mapStateToProps = (state) =>
+  Object({
+    quantityRange: [state.quantityRange.min, state.quantityRange.max],
+    pointsRange: [state.pointsRange.min, state.pointsRange.max],
+    capRange: [state.capRange.min, state.capRange.max],
+  });
+
+export default connect(mapStateToProps)(Filters);

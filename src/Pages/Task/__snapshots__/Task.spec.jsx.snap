@@ -5,7 +5,8 @@ exports[`<Task /> renders with props 1`] = `
   <h1>
     Campaign X Rewards
   </h1>
-  <RewardsList
+  <Connect(Filters) />
+  <Connect(RewardsList)
     rewards={Object {}}
   />
 </Fragment>

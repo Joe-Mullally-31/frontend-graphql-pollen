@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import RewardsList from "./RewardsList.jsx";
+import { RewardsList } from "./RewardsList.jsx";
 
 describe("<RewardsList />", () => {
   let component;
@@ -16,6 +16,9 @@ describe("<RewardsList />", () => {
         capPerAmbassador: 1000,
       },
     ],
+    quantityRange: [0, 100],
+    pointsRange: [0, 100],
+    capRange: [0, 100],
   };
 
   beforeEach(() => {

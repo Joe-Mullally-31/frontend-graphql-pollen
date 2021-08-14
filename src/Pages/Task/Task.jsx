@@ -1,9 +1,9 @@
 import React from "react";
 import RewardsList from "./components/RewardsList/RewardsList.jsx";
 import "./Task.scss";
-import Filters from "./components/QuantitySlider/Filters.jsx";
+import Filters from "./components/Filters/Filters.jsx";
 
-const Task = ({ campaignXRewards = {} }) => {
+export const Task = ({ campaignXRewards = {} }) => {
   return (
     <>
       <h1>Campaign X Rewards</h1>

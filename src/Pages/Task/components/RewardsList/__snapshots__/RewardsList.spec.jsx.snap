@@ -8,34 +8,6 @@ exports[`<RewardsList /> renders with props 1`] = `
     className="makeStyles-imageList-2"
     cols={1}
     rowHeight={200}
-  >
-    <WithStyles(ForwardRef(ImageListItem))
-      className="makeStyles-imageListItem-4"
-      key="https://d3mivsidb2c4zk.cloudfront.net/client/reward_images/1519138501.png"
-    >
-      <img
-        alt="Test Name"
-        src="https://d3mivsidb2c4zk.cloudfront.net/client/reward_images/1519138501.png"
-      />
-      <WithStyles(ForwardRef(ImageListItemBar))
-        actionIcon={
-          <WithStyles(ForwardRef(IconButton))
-            aria-label="info about Description of reward"
-            className="makeStyles-icon-5"
-          >
-            <Memo />
-          </WithStyles(ForwardRef(IconButton))>
-        }
-        className="makeStyles-imageListItemBar-3"
-        position="bottom"
-        subtitle={
-          <span>
-            Description of reward
-          </span>
-        }
-        title="Test Name"
-      />
-    </WithStyles(ForwardRef(ImageListItem))>
-  </WithStyles(ForwardRef(ImageList))>
+  />
 </div>
 `;

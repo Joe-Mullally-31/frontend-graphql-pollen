@@ -80,7 +80,7 @@ exports[`<Filters /> renders with props 1`] = `
           value={
             Array [
               0,
-              10000,
+              100,
             ]
           }
           valueLabelDisplay="auto"
@@ -113,7 +113,7 @@ exports[`<Filters /> renders with props 1`] = `
           value={
             Array [
               0,
-              5,
+              100,
             ]
           }
           valueLabelDisplay="auto"

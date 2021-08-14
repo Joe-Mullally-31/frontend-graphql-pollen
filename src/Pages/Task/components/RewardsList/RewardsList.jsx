@@ -6,6 +6,7 @@ import ImageListItemBar from "@material-ui/core/ImageListItemBar";
 import PropTypes from "prop-types";
 import { IconButton } from "@material-ui/core";
 import InfoIcon from "@material-ui/icons/Info";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,12 +34,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RewardsList = ({ rewards }) => {
+const applyFilter = (field, range) => (reward) =>
+  reward[field] <= range.max && reward[field] >= range.min;
+
+export const RewardsList = ({
+  rewards,
+  quantityRange,
+  pointsRange,
+  capRange,
+}) => {
   const classes = useStyles();
+  const filteredRewards = rewards
+    .filter(applyFilter("quantity", quantityRange))
+    .filter(applyFilter("points", pointsRange))
+    .filter(applyFilter("capPerAmbassador", capRange));
+
   return (
     <div className={classes.root}>
       <ImageList rowHeight={200} className={classes.imageList} cols={1}>
-        {rewards.map((reward) => (
+        {filteredRewards.map((reward) => (
           <ImageListItem key={reward.image} className={classes.imageListItem}>
             <img src={reward.image} alt={reward.name} />
             <ImageListItemBar
@@ -75,4 +89,11 @@ RewardsList.propTypes = {
   ).isRequired,
 };
 
-export default RewardsList;
+const mapStateToProps = (state) =>
+  Object({
+    quantityRange: state.quantityRange,
+    pointsRange: state.pointsRange,
+    capRange: state.capRange,
+  });
+
+export default connect(mapStateToProps)(RewardsList);
